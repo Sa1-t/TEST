@@ -13,7 +13,6 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   
-  // 注册全局命令
   rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
     .then(() => console.log('Successfully registered application commands.'))
     .catch(console.error);
